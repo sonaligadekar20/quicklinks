@@ -1,37 +1,43 @@
 .app-title{
     text-align: center;
+    color: white;
+    font-size: 40px;
 }
 .app-container{
     display: flex;
     justify-content: space-around;
 }
 .link-generation-card{
+    height: 300px;
     background-color: white;
     border-radius: 5px;
     padding: 20px;
+    margin-top: 50px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 .user-input{
    display: block;
-   width: 250px; 
+   width: 350px; 
    margin-bottom: 20px;
-   font-size: 20px ;
+   font-size: 18px ;
    padding: 5px 10px;
 }
 .btn-generate-link{
     display: block;
-    background-color: black;
+    background-color:rgb(45, 108, 160);
+    /* background-color: green; */
     color: #fff;
-    padding: 10px 30px;
+    padding: 10px 50px;
     border-radius: 10px;
     border: none;
     margin: 10px auto;
     cursor: pointer;
+    font-size: 18px
 }
 .input-short-url{
-    width: 230px;
+    width: 320px;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 18px;
     padding: 5px 10px;
 }
 .short-url-container{
@@ -41,4 +47,29 @@
 }
 .copy-icon{
     cursor: pointer;
+    height: 25px;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 20px;
+}
+.copy-icon:hover{
+    background-color: rgb(162, 162, 213);
+    border-radius: 4px;
+}
+.link-card{
+    background-color: #fff;
+    padding: 5px 15px;
+    width: 350px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.all-links-container{
+    height: 60vh;
+    margin-top: 40px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: 1px;
+}
+.all-links-container::-webkit-scrollbar {
+    display: none;
 }
