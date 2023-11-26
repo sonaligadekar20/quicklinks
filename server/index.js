@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
+import path from 'path';
 import Link from './models/Link.js';
 
 const app = express();
@@ -71,6 +72,14 @@ app.get("/api/links", async (req, res)=>{
         message: "Links fetched successfully"
     })
 })
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+    
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+      });
+}
 
 const PORT = process.env.PORT || 5000;
 
