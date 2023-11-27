@@ -8,6 +8,8 @@ import Link from './models/Link.js';
 const app = express();
 app.use(express.json());
 
+const __dirname = path.resolve();
+
 const connectDB = async () =>{
     const conn = await mongoose.connect(process.env.MONGODB_URI)
 
@@ -49,17 +51,17 @@ app.get("/:slug", async (req, res)=>{
 
     const link = await Link.findOne({slug: slug});
 
-    await Link.updateOne({slug: slug}, {$set: {
-        clicks: link.clicks + 1
-     }})
-
     if(!link){
         return res.json({
             success: false,
             message: "Link not found"
         })
     }
-   
+
+    await Link.updateOne({slug: slug}, {$set: {
+        clicks: link.clicks + 1
+     }})
+
     res.redirect(link.url);
 })
 
